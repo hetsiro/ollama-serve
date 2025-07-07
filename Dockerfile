@@ -1,11 +1,11 @@
-# Usa la imagen oficial de Ollama
 FROM ollama/ollama:latest
 
-# (Opcional) Descarga un modelo por defecto al construir la imagen
+# Descarga el modelo de chat
 RUN ollama pull llama3
 
-# Expone el puerto por defecto de Ollama
+# Descarga el modelo de embeddings
+RUN ollama pull nomic-embed-text
+
 EXPOSE 11434
 
-# Comando para iniciar el servidor Ollama
 CMD ["ollama", "serve"]
